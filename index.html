@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Page css -->
+	<link rel="stylesheet" href="css/index.css" />
+
+	<script type="text/javascript" src="http://static.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
+	<script type="text/javascript" src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<script type="text/javascript" src="js/ros_controller.js"></script>
+	<script type="text/javascript" src="js/dashboard_controller.js"></script>
+
+
+</head>
+
+
+<body onload="init()" >
+<!-- Simulate a smartphone / tablet -->
+<div class="mobile-container">
+
+	<!-- Top Navigation Menu -->
+	<div class="topnav">
+		<a href="index.html" class="active">Logo</a>
+		<div id="myLinks">
+			<a href="#ros_settings">ROS Settings</a>
+			<a href="indexs.html">Dashboard</a>
+			<a href="#about">About</a>
+		</div>
+		<a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+
+	<div class="row">
+		<div class="column1">
+			<h3>Live feed from Robot</h3>
+    		<img id="image_sub" width="650" height="400"/>
+    		<img id="map_sub" width="650" height="400"/>
+  		</div>
+  		
+  		<div class="column2">
+			<h3 class="h3_middle">Robot Status</h3>
+			
+			<div class="row">
+      			<i class="task_text">ROS Connection: <span id="status"></span></i> 
+    		</div>
+    		<div style="line-height:25px;">
+				<br>
+    		</div>
+    
+			<div class="row">
+      			<i class="task_text">Robot: </i> 
+    		</div>
+    		<div style="line-height:25px;">
+      			<br>
+    		</div>
+    
+    		<div class="row">
+      			<i class="task_text">Task: </i>
+    		</div>
+    		<div style="line-height:25px;">
+      			<br>
+    		</div>
+    
+    		<div class="row">
+      			<i class="task_text">Destination: </i> 
+    		</div>
+    		<div style="line-height:25px;">
+      			<br>
+    		</div>
+    
+    		<div class="row">
+      			<i class="task_text">Battery: <span id="battery_msg"></span>%</i> 
+    		</div>
+    		<div style="line-height:25px;">
+				<br>
+    		</div>
+    
+    		<div class="row">
+    			<i class="task_text">Speed: <span id="speed_msg"></span> m/s</i> 
+    		</div>
+    		<div style="line-height:25px;">
+      			<br>
+    		</div>
+    
+    		<div class="row">
+      			<button class="button button5" onclick="pause(true)">PAUSE</button>
+      			<button class="button button5" onclick="pause(false)">RESUME</button>
+    		</div>
+    		<div style="line-height:25px;">
+      			<br>
+    		</div>
+		</div>
+	</div>
+	<!-- End smartphone / tablet look -->
+</div>
+
+</body>
+</html>
